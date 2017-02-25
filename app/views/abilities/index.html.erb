@@ -1,26 +1,31 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Max uses</th>
-    <th>Uses left</th>
-  </tr>
-  <% @abilities.each do |a| %>
-      <tr>
-        <td>
-          <%= a.name %>
-        </td>
-        <td>
-          <%= a.max_uses %>
-        </td>
-        <td>
-          <%= a.uses_left %>
-        </td>
-        <td>
-          <%= link_to("Edit", edit_ability_path(:id => a.id)) %>
-        </td>
-        <td>
-          <%= link_to("X", delete_ability_path(:id => a.id)) %>
-        </td>
-      </tr>
-  <% end %>
-</table>
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Max uses</th>
+      <th>Uses left</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+    <% @abilities.each do |a| %>
+        <tr>
+          <td>
+            <%= a.name %>
+          </td>
+          <td>
+            <%= a.max_uses %>
+          </td>
+          <td>
+            <%= a.uses_left %>
+          </td>
+          <td>
+            <%= link_to("Edit", edit_ability_path(:id => a.id)) %>
+          </td>
+          <td>
+            <%= link_to("X", delete_ability_path(:id => a.id)) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
