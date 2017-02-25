@@ -16,7 +16,7 @@ class AbilitiesController < ApplicationController
     this_param[:uses_left] = this_param[:max_uses]
     @ability = Ability.new(this_param)
     if @ability.save
-      redirect_to(root_path)
+      redirect_to(ability_params)
     else
       render('new')
     end
