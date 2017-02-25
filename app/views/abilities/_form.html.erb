@@ -1,0 +1,11 @@
+<table>
+  <tr><td>Name: </td><td>
+  <%= f.text_field(:name) %>
+  </td></tr>
+  <tr><td>Uses per day: </td><td>
+  <%= f.number_field(:max_uses, :in => 0..50) %>
+  </td></tr>
+</table>
+
+
+

@@ -1,0 +1,9 @@
+<%= form_for(@ability, :url => ability_path(@ability), :method => 'delete') do |f| %>
+
+    <p><strong>Are you sure you want to remove <%= @ability.name %> from the database?</strong></p>
+    </br>
+    <%= render(:partial => 'ability_info', :locals => {:ability => @ability}) %>
+    <br>
+    <%= f.submit("Delete Ability", class: 'btn btn-danger col-md-8 col-md-offset-2') %>
+
+<% end %>
