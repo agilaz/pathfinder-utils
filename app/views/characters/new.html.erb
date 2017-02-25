@@ -1,0 +1,7 @@
+<br>
+<div class="col-md-4 col-md-offset-4">
+  <%= form_for(@character) do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+      <br><%= f.submit("Add character", :class => 'btn btn-large col-md-10 col-md-offset-1') %>
+  <% end %>
+</div>

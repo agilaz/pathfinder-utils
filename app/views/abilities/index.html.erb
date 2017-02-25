@@ -32,6 +32,7 @@
         </tr>
     <% end %>
   </table>
-  <div class='col-md-5'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
-  <div class='col-md-5 col-md-offset-2'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block')%></div>
+  <div class='col-md-3'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
+  <div class='col-md-3 col-md-offset-1'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block')%></div>
+  <div class='col-md-3 col-md-offset-1'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block')%></div>
 </div>

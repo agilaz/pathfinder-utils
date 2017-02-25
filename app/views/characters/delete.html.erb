@@ -1,0 +1,12 @@
+<br>
+<div class="col-md-4 col-md-offset-4">
+  <%= form_for(@character, :url => character_path(@character), :method => 'delete') do |f| %>
+
+      <p><strong>Are you sure you want to remove <%= @character.name %> from the database?</strong></p>
+      </br>
+      <%= render(:partial => 'character_info', :locals => {:character => @character}) %>
+      <br>
+      <%= f.submit("Delete Character", class: 'btn btn-danger col-md-8 col-md-offset-2') %>
+
+  <% end %>
+</div>

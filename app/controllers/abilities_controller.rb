@@ -1,6 +1,6 @@
 class AbilitiesController < ApplicationController
   def index
-    @abilities = Ability.all
+    @abilities = Ability.all.where(:character_id => session[:character_id])
   end
 
   def show
@@ -15,7 +15,7 @@ class AbilitiesController < ApplicationController
     this_param = ability_params
     this_param[:uses_left] = this_param[:max_uses]
     @ability = Ability.new(this_param)
-    if @ability.save
+    if Character.find(session[:character_id]).add_ability(@ability)
       redirect_to(abilities_path)
     else
       render('new')

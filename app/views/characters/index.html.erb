@@ -1,0 +1,36 @@
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Level</th>
+      <th>Use</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+    <% @characters.each do |c| %>
+        <tr>
+          <td>
+            <%= c.name %>
+          </td>
+          <td>
+            <%= c.char_class %>
+          </td>
+          <td>
+            <%= c.level %>
+          </td>
+          <td>
+            <%= button_to("Select", {:action => 'load_character', :id => c.id}, :class => 'btn btn-block') %>
+          </td>
+          <td>
+            <%= link_to("Edit", edit_character_path(:id => c.id)) %>
+          </td>
+          <td>
+            <%= link_to("X", delete_character_path(:id => c.id)) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+  <div class='col-md-5 col-md-offset-2'><%= button_to("Add new character", new_character_path, method: :get, :class => 'btn btn-block')%></div>
+</div>
