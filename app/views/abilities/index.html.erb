@@ -5,6 +5,7 @@
       <th>Name</th>
       <th>Max uses</th>
       <th>Uses left</th>
+      <th>Use</th>
       <th>Edit</th>
       <th>Remove</th>
     </tr>
@@ -20,6 +21,9 @@
             <%= a.uses_left %>
           </td>
           <td>
+            <%= button_to("Use", {:action => 'use_ability', :id => a.id}, :class => 'btn btn-block') %>
+          </td>
+          <td>
             <%= link_to("Edit", edit_ability_path(:id => a.id)) %>
           </td>
           <td>
@@ -28,4 +32,6 @@
         </tr>
     <% end %>
   </table>
+  <div class='col-md-5'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
+  <div class='col-md-5 col-md-offset-2'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block')%></div>
 </div>

@@ -6,4 +6,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  post 'abilities/:id/use_ability', to: 'abilities#use_ability'
+  post 'abilities/refresh_abilities'
 end

@@ -16,7 +16,7 @@ class AbilitiesController < ApplicationController
     this_param[:uses_left] = this_param[:max_uses]
     @ability = Ability.new(this_param)
     if @ability.save
-      redirect_to(ability_path)
+      redirect_to(abilities_path)
     else
       render('new')
     end
@@ -48,5 +48,17 @@ class AbilitiesController < ApplicationController
 
   def ability_params
     params.require(:ability).permit(:name, :max_uses)
+  end
+
+  def use_ability
+    Ability.find(params[:id]).use_ability
+    redirect_to :back
+  end
+
+  def refresh_abilities
+    Ability.all.each do |a|
+      a.refresh_ability
+    end
+    redirect_to :back
   end
 end
