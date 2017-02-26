@@ -6,6 +6,9 @@
     <!-- TODO use list instead of text field? -->
     <%= f.text_field(:char_class) %>
   </td></tr>
+  <tr><td>Spellcasting score: </td><td>
+    <%= f.number_field(:spellcasting_score, :in => 0..50) %>
+  </td></tr>
   <tr><td>Level: </td><td>
     <%= f.number_field(:level, :in => 0..20) %>
   </td></tr>
