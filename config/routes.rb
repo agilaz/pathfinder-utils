@@ -1,23 +1,4 @@
 Rails.application.routes.draw do
-  get 'characters/index'
-
-  get 'characters/show'
-
-  get 'characters/new'
-
-  get 'characters/edit'
-
-  get 'characters/delete'
-
-  get 'spells/index'
-
-  get 'spells/show'
-
-  get 'spells/new'
-
-  get 'spells/edit'
-
-  get 'spells/delete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'main#index'
@@ -36,6 +17,8 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  get 'scrape_spells', to: 'main#scrape_spells'
 
   post 'characters/:id/load_character', to: 'characters#load_character'
 end

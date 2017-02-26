@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225221944) do
+ActiveRecord::Schema.define(version: 20170226001350) do
 
   create_table "abilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -28,6 +28,37 @@ ActiveRecord::Schema.define(version: 20170225221944) do
     t.integer  "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "sorcerer"
+    t.integer  "wizard"
+    t.integer  "cleric"
+    t.integer  "druid"
+    t.integer  "ranger"
+    t.integer  "bard"
+    t.integer  "paladin"
+    t.integer  "alchemist"
+    t.integer  "summoner"
+    t.integer  "witch"
+    t.integer  "inquisitor"
+    t.integer  "oracle"
+    t.integer  "antipaladin"
+    t.integer  "magus"
+    t.integer  "adept"
+    t.integer  "bloodrager"
+    t.integer  "shaman"
+    t.integer  "psychic"
+    t.integer  "medium"
+    t.integer  "mesmerist"
+    t.integer  "occultist"
+    t.integer  "spiritualist"
+    t.integer  "skald"
+    t.integer  "investigator"
+    t.integer  "hunter"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
