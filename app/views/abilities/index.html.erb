@@ -36,7 +36,7 @@
   <div class='col-md-3'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block') %></div>
   <div class='col-md-3'>
     <% if is_spontaneous(Character.find(session[:character_id])) %>
-        <%= button_to("View spells", spellbook_link(Character.find(session[:character_id])), method: :get, :class => 'btn btn-block') %>
+        <%= button_to("View spells", spellbook_link(Character.find(session[:character_id])), method: :get, :class => 'btn btn-block', form: {target: :_blank}) %>
     <% else %>
         <%= button_to("View spells", prepared_spells_path, method: :get, :class => 'btn btn-block') %>
     <% end %>

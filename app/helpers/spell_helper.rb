@@ -182,4 +182,8 @@ module SpellHelper
   def spellbook_link(character)
     CASTER_SPELLBOOK[character.char_class.to_sym]
   end
+
+  def srd_link(name)
+    "http://www.d20pfsrd.com/magic/all-spells/#{name.gsub(/\s/,'-')}/"
+  end
 end

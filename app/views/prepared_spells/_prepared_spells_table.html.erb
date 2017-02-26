@@ -14,7 +14,7 @@
   </tr>
       <% list.each do |spell| %>
       <tr>
-        <td><%= spell.name %></td> <!--TODO link to d20pfsrd-->
+        <td><%= link_to(spell.name,srd_link(spell.name), target: :_blank) %></td>
         <td><%= spell.uses %></td>
         <td>
           <div>

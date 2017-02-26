@@ -3,7 +3,7 @@
 <% @all_spells.each do |s| %>
     <tr>
       <td><%= radio_button_tag(:spell_id, s.id, :checked => (s == @all_spells.first)) %>
-        <%= s.name %>
+        <%= link_to(s.name, srd_link(s.name), target: :_blank) %>
       </td>
     </tr>
 <% end %>
