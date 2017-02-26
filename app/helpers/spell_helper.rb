@@ -95,6 +95,51 @@ module SpellHelper
       :warpriest => 6
   }
 
+  CASTER_IS_SPONTANEOUS={
+      :sorcerer => true,
+      :wizard => false,
+      :cleric => false,
+      :druid => false,
+      :ranger => false,
+      :bard => true,
+      :paladin => false,
+      :alchemist => false,
+      :summoner => true,
+      :witch => false,
+      :inquisitor => true,
+      :oracle => true,
+      :antipaladin => false,
+      :magus => false,
+      :adept => false,
+      :bloodrager => true,
+      :shaman => false,
+      :psychic => true,
+      :medium => true,
+      :mesmerist => true,
+      :occultist => true,
+      :spiritualist => true,
+      :skald => true,
+      :investigator => false,
+      :hunter => true,
+      :warpriest => false
+  }
+
+  CASTER_SPELLBOOK={
+      :sorcerer => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-sorcerer-and-wizard/",
+      :bard => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-bard/",
+      :summoner => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-summoner/",
+      :inquisitor => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-inquisitor/",
+      :oracle => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-cleric/",
+      :bloodrager => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-sorcerer-and-wizard/",
+      :psychic => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/psychic/",
+      :medium => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/medium/",
+      :mesmerist => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/mesmerist/",
+      :occultist => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/occultist/",
+      :spiritualist => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spiritualist/",
+      :skald => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-bard/",
+      :hunter => "http://www.d20pfsrd.com/magic/spell-lists-and-domains/spell-lists-druid/",
+  }
+
   def spells_per_day(character)
     if !CASTER_TYPE[character.char_class.to_sym].nil?
       type = CASTER_TYPE[character.char_class.to_sym]
@@ -128,5 +173,13 @@ module SpellHelper
       ability_mod -= 4
     end
     return spell_amts
+  end
+
+  def is_spontaneous(character)
+    CASTER_IS_SPONTANEOUS[character.char_class.to_sym]
+  end
+
+  def spellbook_link(character)
+    CASTER_SPELLBOOK[character.char_class.to_sym]
   end
 end

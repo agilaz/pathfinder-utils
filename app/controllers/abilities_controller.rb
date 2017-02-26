@@ -1,5 +1,11 @@
 class AbilitiesController < ApplicationController
+
+
   def index
+    character = Character.find(session[:character_id])
+    if is_spontaneous(character)
+      character.load_spontaneous
+    end
     @abilities = Ability.all.where(:character_id => session[:character_id])
   end
 
