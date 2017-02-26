@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: Korae_67
-  socket: /tmp/mysql.sock
+  username: pathfinder-util
+  password: pathfinder
 
 development:
   <<: *default

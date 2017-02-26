@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   def index
     @characters = Character.all
+    session[:character_id] = nil
   end
 
   def show

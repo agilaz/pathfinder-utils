@@ -1,4 +1,6 @@
-<table>
+<center><strong>New Character</strong></center>
+<%= render(:partial => 'main/form_errors', :locals => {:object => f.object}) %>
+<table class="table">
   <tr><td>Name: </td><td>
     <%= f.text_field(:name) %>
   </td></tr>

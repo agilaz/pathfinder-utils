@@ -2,6 +2,7 @@ class Character < ApplicationRecord
   include SpellHelper
   has_many :abilities
   has_many :prepared_spells
+  validates_presence_of :name, :char_class
 
   def add_ability(ability)
     abilities << ability

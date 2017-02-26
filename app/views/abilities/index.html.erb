@@ -1,45 +1,57 @@
 <br>
 <div class="col-md-6 col-md-offset-3">
-  <table class="table table-bordered">
-    <tr>
-      <th>Name</th>
-      <th>Uses left</th>
-      <th>Max uses</th>
-      <th>Use</th>
-      <th>Edit</th>
-      <th>Remove</th>
-    </tr>
-    <% @abilities.each do |a| %>
+  <% if @abilities.length <= 0 %>
+      <center><strong>No abilities loaded.</strong></center><br>
+  <% else %>
+      <table class="table table-bordered">
         <tr>
-          <td>
-            <%= a.name %>
-          </td>
-          <td>
-            <%= a.uses_left %>
-          </td>
-          <td>
-            <%= a.max_uses %>
-          </td>
-          <td>
-            <%= link_to("Use", {:action => 'use_ability', :id => a.id}, method: :post) %>
-          </td>
-          <td>
-            <%= link_to("Edit", edit_ability_path(:id => a.id)) %>
-          </td>
-          <td>
-            <%= link_to("X", delete_ability_path(:id => a.id)) %>
-          </td>
+          <th>Name</th>
+          <th>Uses left</th>
+          <th>Max uses</th>
+          <th>Use</th>
+          <th>Edit</th>
+          <th>Remove</th>
         </tr>
-    <% end %>
-  </table>
-  <div class='col-md-3'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
-  <div class='col-md-3'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block') %></div>
-  <div class='col-md-3'>
-    <% if is_spontaneous(Character.find(session[:character_id])) %>
-        <%= button_to("View spells", spellbook_link(Character.find(session[:character_id])), method: :get, :class => 'btn btn-block', form: {target: :_blank}) %>
-    <% else %>
-        <%= button_to("View spells", prepared_spells_path, method: :get, :class => 'btn btn-block') %>
-    <% end %>
-  </div>
-  <div class='col-md-3'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block') %></div>
+        <% @abilities.each do |a| %>
+            <tr>
+              <td>
+                <%= a.name %>
+              </td>
+              <td>
+                <%= a.uses_left %>
+              </td>
+              <td>
+                <%= a.max_uses %>
+              </td>
+              <td>
+                <%= link_to("Use", {:action => 'use_ability', :id => a.id}, method: :post) %>
+              </td>
+              <td>
+                <%= link_to("Edit", edit_ability_path(:id => a.id)) %>
+              </td>
+              <td>
+                <%= link_to("X", delete_ability_path(:id => a.id)) %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+  <% end %>
+  <% if (Character.find(session[:character_id]).char_class.eql?('non-caster')) %>
+      <div class='col-md-4'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
+      <div class='col-md-4'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block') %></div>
+      <div class='col-md-4'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block') %></div>
+  <% else %>
+      <div class='col-md-3'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
+      <div class='col-md-3'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block') %></div>
+      <div class='col-md-3'>
+        <% if is_spontaneous(Character.find(session[:character_id])) %>
+            <%= button_to("View spell list", spellbook_link(Character.find(session[:character_id])), method: :get, :class => 'btn btn-block', form: {target: :_blank}) %>
+        <% else %>
+            <%= button_to("View spells", prepared_spells_path, method: :get, :class => 'btn btn-block') %>
+        <% end %>
+      </div>
+      <div class='col-md-3'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block') %></div>
+
+  <% end %>
+
 </div>

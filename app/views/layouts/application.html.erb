@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PathfinderUtils</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>PathfinderUtils</title>
+  <% unless session[:character_id].nil? %>
+      <h2><center><%= Character.find(session[:character_id]).name %></center></h2>
+  <% end %>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<%= yield %>
+</body>
 </html>

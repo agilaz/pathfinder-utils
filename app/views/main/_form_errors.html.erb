@@ -1,0 +1,10 @@
+<% if object && object.errors.size > 0 %>
+    <div>
+      <strong style="color: red">You have <%= pluralize(object.errors.size, "error") %> in this form</strong>
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+            <li style="color: red"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

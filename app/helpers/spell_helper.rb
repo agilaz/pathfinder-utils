@@ -189,6 +189,7 @@ module SpellHelper
 
   def caster_names
     names = []
+    names << 'non-caster'
     CASTER_TYPE.keys.each do |k|
       names << k.to_s
     end
