@@ -1,0 +1,2 @@
+module PreparedSpellsHelper
+end

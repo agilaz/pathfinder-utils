@@ -1,0 +1,9 @@
+<table class="table table-bordered table-striped">
+<% @all_spells.each do |s| %>
+    <tr>
+      <td><%= radio_button_tag(:spell_id, s.id, :checked => (s == @all_spells.first)) %>
+        <%= s.name %>
+      </td>
+    </tr>
+<% end %>
+</table>

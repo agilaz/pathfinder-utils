@@ -1,0 +1,15 @@
+<table>
+  <% spells.each do |level, list| %>
+  <tr>
+    <th><%= level %></th>
+    <th>Spells allowed: <%= spells_allowed[level] %></th>
+    <th><%= link_to("Add spell", new_prepared_spell_path(:level => level)) %></th>
+  </tr>
+      <% list.each do |spell| %>
+      <tr>
+        <td><%= spell.name %></td> <!--TODO link to d20pfsrd-->
+        <td><%= spell.uses %></td>
+      </tr>
+      <% end %>
+  <% end %>
+</table>

@@ -1,0 +1,4 @@
+<%= form_for(@prepared_spell, :url => prepared_spells_path) do |f| %>
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+    <br><%= f.submit("Add spell", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+<% end %>
