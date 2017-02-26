@@ -186,4 +186,12 @@ module SpellHelper
   def srd_link(name)
     "http://www.d20pfsrd.com/magic/all-spells/#{name.gsub(/\s/,'-')}/"
   end
+
+  def caster_names
+    names = []
+    CASTER_TYPE.keys.each do |k|
+      names << k.to_s
+    end
+    return names
+  end
 end

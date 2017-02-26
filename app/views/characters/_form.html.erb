@@ -3,8 +3,7 @@
     <%= f.text_field(:name) %>
   </td></tr>
   <tr><td>Class: </td><td>
-    <!-- TODO use list instead of text field? -->
-    <%= f.text_field(:char_class) %>
+    <%= f.select(:char_class, caster_names) %>
   </td></tr>
   <tr><td>Spellcasting score: </td><td>
     <%= f.number_field(:spellcasting_score, :in => 0..50) %>

@@ -34,9 +34,11 @@ class AbilitiesController < ApplicationController
   end
 
   def update
-    #TODO add check for uses_left > max_uses
     @ability = Ability.find(params[:id])
     if @ability.update_attributes(ability_params)
+      if (@ability.max_uses < @ability.uses_left)
+        @ability.update_attributes(:uses_left => @ability.max_uses)
+      end
       redirect_to(abilities_path)
     else
       render('edit')

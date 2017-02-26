@@ -27,7 +27,6 @@ class MainController < ApplicationController
       spell = Spell.new(spell_attributes)
       spell.save
     end
-    #TODO update redirect
-    redirect_to(characters_path)
+    redirect_to(root_path)
   end
 end
