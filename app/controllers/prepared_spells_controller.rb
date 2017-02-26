@@ -53,4 +53,12 @@ class PreparedSpellsController < ApplicationController
     end
     redirect_to :back
   end
+
+  def clear_spells
+    character = Character.find(session[:character_id])
+    character.prepared_spells.each do |s|
+      s.destroy
+    end
+    redirect_to :back
+  end
 end

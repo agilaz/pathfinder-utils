@@ -15,7 +15,7 @@ class Character < ApplicationRecord
     if has_slots_left(spell.level)
       index = nil
       for i in 0..prepared_spells.length-1
-        if prepared_spells[i].name <=> spell.name
+        if prepared_spells[i].name.eql?spell.name
           index = i
         end
       end

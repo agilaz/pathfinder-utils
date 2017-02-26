@@ -5,20 +5,22 @@
     <th>Modify +/-</th>
   </tr>
   <tr>
-<table class="table">
+<table class="table table-bordered">
   <% spells.each do |level, list| %>
   <tr>
     <th>Level <%= level %></th>
     <th>Spells allowed: <%= spells_allowed[level] %></th>
-    <th><%= link_to("Add spell", new_prepared_spell_path(:level => level)) %></th>
+    <th><center><%= link_to("Add spell", new_prepared_spell_path(:level => level)) %></center></th>
   </tr>
       <% list.each do |spell| %>
       <tr>
         <td><%= spell.name %></td> <!--TODO link to d20pfsrd-->
         <td><%= spell.uses %></td>
         <td>
-          <%=link_to("+", {:action => "plus", :id => spell.id}, method: :post) %>
-          <%=link_to("-", {:action => "minus", :id => spell.id}, method: :post) %>
+          <div>
+            <div class="col-md-4 col-md-offset-2"><%=button_to("+", {:action => "plus", :id => spell.id}, :class => 'btn btn-block') %></div>
+            <div class="col-md-4"><%=button_to("-", {:action => "minus", :id => spell.id}, :class => 'btn btn-block') %></div>
+          </div>
         </td>
       </tr>
       <% end %>
@@ -26,3 +28,6 @@
 </table>
   </tr>
 </table>
+<div class='col-md-3'><%= button_to("Clear Spells", {:action => 'clear_spells'}, :class => 'btn btn-block') %></div>
+<div class='col-md-3 col-md-offset-1'><%= button_to("View Abilities", abilities_path, method: :get, :class => 'btn btn-block')%></div>
+<div class='col-md-3 col-md-offset-1'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block')%></div>

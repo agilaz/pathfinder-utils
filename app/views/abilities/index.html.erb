@@ -3,8 +3,8 @@
   <table class="table table-bordered">
     <tr>
       <th>Name</th>
-      <th>Max uses</th>
       <th>Uses left</th>
+      <th>Max uses</th>
       <th>Use</th>
       <th>Edit</th>
       <th>Remove</th>
@@ -15,10 +15,10 @@
             <%= a.name %>
           </td>
           <td>
-            <%= a.max_uses %>
+            <%= a.uses_left %>
           </td>
           <td>
-            <%= a.uses_left %>
+            <%= a.max_uses %>
           </td>
           <td>
             <%= button_to("Use", {:action => 'use_ability', :id => a.id}, :class => 'btn btn-block') %>
@@ -33,6 +33,7 @@
     <% end %>
   </table>
   <div class='col-md-3'><%= button_to("Refresh all", {:action => 'refresh_abilities'}, :class => 'btn btn-block') %></div>
-  <div class='col-md-3 col-md-offset-1'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block')%></div>
-  <div class='col-md-3 col-md-offset-1'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block')%></div>
+  <div class='col-md-3'><%= button_to("Add new ability", new_ability_path, method: :get, :class => 'btn btn-block')%></div>
+  <div class='col-md-3'><%= button_to("View spells", prepared_spells_path, method: :get, :class => 'btn btn-block') %></div>
+  <div class='col-md-3'><%= button_to("Change character", characters_path, method: :get, :class => 'btn btn-block')%></div>
 </div>

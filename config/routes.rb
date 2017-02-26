@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'prepared_spells/new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root :to => 'main#index'
+  root :to => 'characters#index'
 
   resources :abilities do
     member do
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :prepared_spells
 
+  post 'prepared_spells/clear_spells'
   post 'prepared_spells/:id/plus', to: 'prepared_spells#plus'
   post 'prepared_spells/:id/minus', to: 'prepared_spells#minus'
 end
