@@ -21,7 +21,7 @@
             <%= a.max_uses %>
           </td>
           <td>
-            <%= button_to("Use", {:action => 'use_ability', :id => a.id}, :class => 'btn btn-block') %>
+            <%= link_to("Use", {:action => 'use_ability', :id => a.id}, method: :post) %>
           </td>
           <td>
             <%= link_to("Edit", edit_ability_path(:id => a.id)) %>

@@ -1,7 +1,8 @@
 <br>
 <div class="col-md-4 col-md-offset-4">
-<%= form_for(@ability) do |f| %>
-    <%= render(:partial => 'form', :locals => {:f => f}) %>
-    <br><%= f.submit("Create new ability", :class => 'btn btn-large col-md-10 col-md-offset-1') %>
-<% end %>
+  <%= link_to("<< Cancel", abilities_path) %>
+  <%= form_for(@ability) do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+      <br><%= f.submit("Create new ability", :class => 'btn btn-large col-md-10 col-md-offset-1') %>
+  <% end %>
 </div>

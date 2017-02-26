@@ -25,7 +25,7 @@
             <%= c.level %>
           </td>
           <td>
-            <%= button_to("Select", {:action => 'load_character', :id => c.id}, :class => 'btn btn-block') %>
+            <%= link_to("Load", {:action => 'load_character', :id => c.id}, method: :post) %>
           </td>
           <td>
             <%= link_to("Edit", edit_character_path(:id => c.id)) %>
@@ -36,5 +36,5 @@
         </tr>
     <% end %>
   </table>
-  <div class='col-md-5 col-md-offset-2'><%= button_to("Add new character", new_character_path, method: :get, :class => 'btn btn-block')%></div>
+  <div class='col-md-6 col-md-offset-3'><%= button_to("Add new character", new_character_path, method: :get, :class => 'btn btn-block')%></div>
 </div>
