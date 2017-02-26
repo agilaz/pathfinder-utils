@@ -1,3 +1,10 @@
+<table class = "table table-bordered">
+  <tr>
+    <th>Level/Name</th>
+    <th>Uses Allowed</th>
+    <th>Modify +/-</th>
+  </tr>
+  <tr>
 <table class="table">
   <% spells.each do |level, list| %>
   <tr>
@@ -9,8 +16,13 @@
       <tr>
         <td><%= spell.name %></td> <!--TODO link to d20pfsrd-->
         <td><%= spell.uses %></td>
-        <td> +/- </td>
+        <td>
+          <%=link_to("+", {:action => "plus", :id => spell.id}, method: :post) %>
+          <%=link_to("-", {:action => "minus", :id => spell.id}, method: :post) %>
+        </td>
       </tr>
       <% end %>
   <% end %>
+</table>
+  </tr>
 </table>

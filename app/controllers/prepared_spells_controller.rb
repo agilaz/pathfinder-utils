@@ -34,4 +34,23 @@ class PreparedSpellsController < ApplicationController
     spells
   end
 
+  def plus
+    @prepared_spell = PreparedSpell.find(params[:id])
+    character = Character.find(session[:character_id])
+    if character.has_slots_left(@prepared_spell.level)
+      @prepared_spell.update(:uses => @prepared_spell.uses+1)
+    end
+    redirect_to :back
+  end
+
+  def minus
+    @prepared_spell = PreparedSpell.find(params[:id])
+    @prepared_spell.update(:uses => @prepared_spell.uses-1)
+    if @prepared_spell.uses <= 0
+      character = Character.find(session[:character_id])
+      character.remove_prepared_spell(@prepared_spell)
+      @prepared_spell.destroy
+    end
+    redirect_to :back
+  end
 end

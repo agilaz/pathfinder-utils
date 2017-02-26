@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
   resources :prepared_spells
 
+  post 'prepared_spells/:id/plus', to: 'prepared_spells#plus'
+  post 'prepared_spells/:id/minus', to: 'prepared_spells#minus'
 end

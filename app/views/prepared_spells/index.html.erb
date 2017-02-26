@@ -1,11 +1,4 @@
-JOE'S BEAUTIFULLY FORMATTED SPELL SELECTION
-<div class = "col-md-6 col-md-offset-3">
-  <table class = "table table-bordered">
-    <tr>
-      <th>Level/Name</th>
-      <th>Uses Allowed</th>
-      <th>Modify +/-</th>
-    </tr>
+<div class = "col-md-6 col-md-offset-1">
     <%= render(:partial => 'prepared_spells_table', :locals => {:spells => @spells, :spells_allowed => @spells_allowed}) %>
   </table>
 </div>
