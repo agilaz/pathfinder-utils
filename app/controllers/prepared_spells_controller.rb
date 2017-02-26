@@ -28,7 +28,7 @@ class PreparedSpellsController < ApplicationController
     spells = Hash.new
     for i in 0..spells_allowed.length
       unless spells_allowed[i].nil?
-        spells[i]=PreparedSpell.all.where(:level => i).order('name ASC')
+        spells[i]=PreparedSpell.all.where(:character_id => session[:character_id], :level => i).order('name ASC')
       end
     end
     spells

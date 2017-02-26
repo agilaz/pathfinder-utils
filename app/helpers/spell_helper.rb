@@ -92,6 +92,7 @@ module SpellHelper
       :skald => 6,
       :investigator => 6,
       :hunter => 6,
+      :warpriest => 6
   }
 
   def spells_per_day(character)
