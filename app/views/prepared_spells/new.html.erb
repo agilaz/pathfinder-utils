@@ -1,4 +1,11 @@
-<%= form_for(@prepared_spell, :url => prepared_spells_path) do |f| %>
-    <%= render(:partial => 'form', :locals => {:f => f}) %>
-    <br><%= f.submit("Add spell", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
-<% end %>
+<div class="col-md-6 col-md-offset-1">
+  <%= render(:partial => 'prepared_spells_table', :locals => {:spells => @spells, :spells_allowed => @spells_allowed}) %>
+</div>
+<div class="col-md-4">
+  <div style="overflow-y: scroll; height:400px">
+  <%= form_for(@prepared_spell, :url => prepared_spells_path) do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+        </div>
+      <br><%= f.submit("Add spell", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+  <% end %>
+</div>
