@@ -184,7 +184,9 @@ module SpellHelper
   end
 
   def srd_link(name)
-    "http://www.d20pfsrd.com/magic/all-spells/#{name.gsub(/\s/,'-')}/"
+    bettername = name.gsub(/\s/,'-')
+    bettername = bettername.gsub(/[']/,'-')
+    "http://www.d20pfsrd.com/magic/all-spells/#{bettername}/"
   end
 
   def caster_names
