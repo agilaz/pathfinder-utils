@@ -9,7 +9,7 @@
   <% spells.each do |level, list| %>
   <tr>
     <th>Level <%= level %></th>
-    <th>Spells: <%= list.length %> / <%=spells_allowed[level] %></th>
+    <th>Spells: <%= Character.find(session[:character_id]).spells_prepared(level) %> / <%=spells_allowed[level] %></th>
     <th><center><%= link_to("Add spell", new_prepared_spell_path(:level => level)) %></center></th>
   </tr>
       <% list.each do |spell| %>
