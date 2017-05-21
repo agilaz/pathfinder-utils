@@ -25,6 +25,7 @@ class MainController < ApplicationController
         end
       end
       spell = Spell.new(spell_attributes)
+      spell.warpriest = spell.cleric
       spell.save
     end
     redirect_to(root_path)

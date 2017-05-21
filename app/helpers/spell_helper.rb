@@ -1,6 +1,6 @@
 module SpellHelper
   SPELL_TABLE={
-      9 => [
+      "9s" => [
           [nil, 3, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, 4, nil, nil, nil, nil, nil, nil, nil, nil],
           [nil, 5, nil, nil, nil, nil, nil, nil, nil, nil],
@@ -22,7 +22,29 @@ module SpellHelper
           [nil, 6, 6, 6, 6, 6, 6, 6, 6, 4],
           [nil, 6, 6, 6, 6, 6, 6, 6, 6, 6]
       ],
-      6 => [
+      "9p" => [
+          [nil, 1, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, 2, nil, nil, nil, nil, nil, nil, nil, nil],
+          [nil, 2, 1, nil, nil, nil, nil, nil, nil, nil],
+          [nil, 3, 2, nil, nil, nil, nil, nil, nil, nil],
+          [nil, 3, 2, 1, nil, nil, nil, nil, nil, nil],
+          [nil, 3, 3, 2, nil, nil, nil, nil, nil, nil],
+          [nil, 4, 3, 2, 1, nil, nil, nil, nil, nil],
+          [nil, 4, 3, 3, 2, nil, nil, nil, nil, nil],
+          [nil, 4, 4, 3, 2, 1, nil, nil, nil, nil],
+          [nil, 4, 4, 3, 3, 2, nil, nil, nil, nil],
+          [nil, 4, 4, 4, 3, 2, 1, nil, nil, nil],
+          [nil, 4, 4, 4, 3, 3, 2, nil, nil, nil],
+          [nil, 4, 4, 4, 4, 3, 2, 1, nil, nil],
+          [nil, 4, 4, 4, 4, 3, 3, 2, nil, nil],
+          [nil, 4, 4, 4, 4, 4, 3, 2, 1, nil],
+          [nil, 4, 4, 4, 4, 4, 3, 3, 2, nil],
+          [nil, 4, 4, 4, 4, 4, 4, 3, 2, 1],
+          [nil, 4, 4, 4, 4, 4, 4, 3, 3, 2],
+          [nil, 4, 4, 4, 4, 4, 4, 4, 3, 3],
+          [nil, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+      ],
+      "6" => [
           [nil, 1, nil, nil, nil, nil, nil],
           [nil, 2, nil, nil, nil, nil, nil],
           [nil, 3, nil, nil, nil, nil, nil],
@@ -44,7 +66,7 @@ module SpellHelper
           [nil, 5, 5, 5, 5, 5, 4],
           [nil, 5, 5, 5, 5, 5, 5],
       ],
-      4 => [
+      "4" => [
           [nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, nil],
@@ -67,32 +89,32 @@ module SpellHelper
           [nil, 4, 4, 3, 3],
       ]}
   CASTER_TYPE={
-      :sorcerer => 9,
-      :wizard => 9,
-      :cleric => 9,
-      :druid => 9,
-      :ranger => 4,
-      :bard => 6,
-      :paladin => 4,
-      :alchemist => 6,
-      :summoner => 6,
-      :witch => 9,
-      :inquisitor => 6,
-      :oracle => 9,
-      :antipaladin => 4,
-      :magus => 6,
-      :adept => 6,
-      :bloodrager => 6,
-      :shaman => 9,
-      :psychic => 9,
-      :medium => 4,
-      :mesmerist => 6,
-      :occultist => 6,
-      :spiritualist => 6,
-      :skald => 6,
-      :investigator => 6,
-      :hunter => 6,
-      :warpriest => 6
+      :sorcerer => "9s",
+      :wizard => "9p",
+      :cleric => "9p",
+      :druid => "9p",
+      :ranger => "4",
+      :bard => "6",
+      :paladin => "4",
+      :alchemist => "6",
+      :summoner => "6",
+      :witch => "9p",
+      :inquisitor => "6",
+      :oracle => "9s",
+      :antipaladin => "4",
+      :magus => "6",
+      :adept => "6",
+      :bloodrager => "6",
+      :shaman => "9p",
+      :psychic => "9s",
+      :medium => "4",
+      :mesmerist => "6",
+      :occultist => "6",
+      :spiritualist => "6",
+      :skald => "6",
+      :investigator => "6",
+      :hunter => "6",
+      :warpriest => "6",
   }
 
   CASTER_IS_SPONTANEOUS={
