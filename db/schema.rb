@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170523164744) do
 
-  create_table "abilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
     t.string   "name"
     t.integer  "max_uses"
     t.integer  "uses_left"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170523164744) do
     t.index ["character_id"], name: "index_abilities_on_character_id", using: :btree
   end
 
-  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.string   "char_class"
     t.integer  "level"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170523164744) do
     t.index ["user_id"], name: "index_characters_on_user_id", using: :btree
   end
 
-  create_table "prepared_spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "prepared_spells", force: :cascade do |t|
     t.string   "name"
     t.integer  "uses"
     t.integer  "level"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170523164744) do
     t.index ["character_id"], name: "index_prepared_spells_on_character_id", using: :btree
   end
 
-  create_table "spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "spells", force: :cascade do |t|
     t.string   "name"
     t.integer  "sorcerer"
     t.integer  "wizard"
@@ -75,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170523164744) do
     t.integer  "warpriest"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
