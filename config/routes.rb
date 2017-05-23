@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'prepared_spells/index'
+  root :to => 'characters#index'
 
+  get 'access/login'
+  post 'access/try_login'
+  get 'access/logout'
+
+  get 'users/new'
+  post 'users/create'
+
+  get 'prepared_spells/index'
   get 'prepared_spells/new'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root :to => 'characters#index'
 
   resources :abilities do
     member do

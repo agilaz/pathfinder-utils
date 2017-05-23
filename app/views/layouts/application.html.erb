@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= render('layouts/user_bar') %>
   <title>PathfinderUtils</title>
   <% unless session[:character_id].nil? %>
       <h2><center><%= Character.find(session[:character_id]).name %></center></h2>

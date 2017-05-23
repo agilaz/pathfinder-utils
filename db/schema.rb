@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226130848) do
+ActiveRecord::Schema.define(version: 20170523164744) do
 
   create_table "abilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170226130848) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "spellcasting_score"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_characters_on_user_id", using: :btree
   end
 
   create_table "prepared_spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,6 +73,14 @@ ActiveRecord::Schema.define(version: 20170226130848) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "warpriest"
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["username"], name: "index_users_on_username", using: :btree
   end
 
 end

@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.all
+    @characters = Character.all.where(:user_id => session[:user_id])
     session[:character_id] = nil
   end
 
@@ -13,8 +13,9 @@ class CharactersController < ApplicationController
   end
 
   def create
+    user = User.find(session[:user_id])
     @character = Character.new(character_params)
-    if @character.save
+    if user.characters << @character
       redirect_to(characters_path)
     else
       render('new')

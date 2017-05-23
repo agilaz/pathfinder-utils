@@ -1,0 +1,19 @@
+<!--Entire file was added for the final exam-->
+
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename: layouts/_user_bar.erb-->
+<!--Description: shows the login/user info bar at the top of the page-->
+<!--Last modified on: 12/13/16-->
+<div class="login-bar">
+  <% if session[:user_id] %>
+      Welcome, <%= User.find(session[:user_id]).username %>.
+      <%= link_to('Logout', access_logout_path) %>.
+  <% else %>
+      Welcome. <%= link_to('Log in', access_login_path) %> or <%= link_to('create account', users_new_path) %>.
+  <% end %>
+</div>
